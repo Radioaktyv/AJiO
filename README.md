@@ -1,8 +1,8 @@
 # AJiO
 
 # Wymagane 
-Python https://www.python.org/downloads/
-Django https://www.djangoproject.com
+1. Python https://www.python.org/downloads/
+2. Django https://www.djangoproject.com
 
 # Aby uruchomić
 1. Należy znajdować się w folderze z projektem.
