@@ -7,15 +7,6 @@
 
     {% for item in ls.item_set.all %}
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    {% if item.complete == True %}
-                        <input type="checkbox" value="clicked" name="c{{item.id}}" checked>
-                        {% else %}
-                        <input type="checkbox" value="clicked" name="c{{item.id}}">
-                    {% endif %}
-                </div>
-            </div>
             <p type="text">{{ item.text }}</p>
         </div>
     {%  endfor %}
