@@ -1,0 +1,36 @@
+{% extends 'AJiO/base.html' %}
+{% block title %} Menu {% endblock %}
+{% block content %}
+    <h3>Add dish to menu</h3>
+    <form method="post" action="/menu/" class="form-group">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <button type="submit" name="save" value="save" class="btn btn-success">Add Dish</button>
+            </div>
+        </div>
+            <div>
+            <h3>Name</h3>
+            {{form.name}}
+            <h3>Description</h3>
+            {{ form.description }}
+            <h3>Price</h3>
+            {{ form.price }}
+        </div>
+        <h3>Current Menu</h3>
+        {% for id,name,description,price in dishes %}
+            <div class="input-group mb-3 span2">
+             <a class="btn btn-secondary" href="/menu/{{id}}" role="button" >{{ name }}</a>
+            <div class="input-group-text">
+            <input type="checkbox" value="clicked" name="c{{id}}"></h6>
+            </div>
+            </div>
+        {% endfor %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" name="delete" value="delete" class="btn btn-success">Delete</button>
+        </div>
+    </div>
+    </form>
+
+{% endblock %}

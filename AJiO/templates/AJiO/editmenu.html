@@ -1,0 +1,28 @@
+{% extends 'AJiO/base.html' %}
+{% block title %}Edit Menu{% endblock %}
+{% block content %}
+    <h1>{{edit.name}}</h1>
+    <form method = "post" action="#">
+    {% csrf_token %}
+
+    <div class="input-group mb-3">
+        Current name: {{ edit.name }}
+    </div>
+    <div>
+        <input type="text" value="{{ edit.name }}" name="name">
+    </div>
+
+    <div class="input-group mb-3">
+        Current description: {{ edit.description }}</div>
+    <div>
+      <input type="text" value="{{ edit.description }}" name="description">
+    </div>
+    <div>
+        Current price: {{ edit.price }}
+    </div>
+    <div>
+        <input type="number" step="0.01" value="{{ edit.price }}" name="price">
+    </div>
+    <button type="submit" name="save" value="save" class="btn btn-success">Save</button>
+    </form>
+{% endblock %}

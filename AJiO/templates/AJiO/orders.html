@@ -1,0 +1,27 @@
+{% extends 'AJiO/base.html' %}
+{% block title %}Orders{% endblock %}
+
+{% block content %}
+<h1>{{ls.name}}</h1>
+    <form method = "post" action="#">
+    {% csrf_token %}
+
+    {% for x,y in test %}
+
+        <div class="input-group mb-3 span2">
+        <a class="btn btn-secondary" href="/orders/{{x}}" role="button">{{ y }}</a>
+        <div class="input-group-text">
+                    {% if item.complete == True %}
+                        <input type="checkbox" value="clicked" name="c{{x}}" checked>
+                        {% else %}
+                        <input type="checkbox" value="clicked" name="c{{x}}">
+                    {% endif %}
+                </div>
+        </div>
+        {%  endfor %}
+     <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" name="delete" value="delete" class="btn btn-success">Delete</button>
+        </div>
+    </form>
+{% endblock %}

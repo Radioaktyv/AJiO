@@ -1,0 +1,26 @@
+{% extends 'AJiO/base.html' %}
+{% block title %} Create New Order {% endblock %}
+{% block content %}
+    <h3>Make Order</h3>
+    <form method="post" action="/create/" class="form-group">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <button type="submit" name="save" value="save" class="btn btn-success">Create an Order</button>
+            </div>
+        </div>
+        {{form.name}}
+
+    <h3>Current Menu</h3>
+        {% for id,name,description,price in dishes %}
+            <div class="input-group mb-3 span2">
+             <a class="btn btn-secondary btn-block">{{ name }}</a>
+            <a class="btn btn-info btn-block">{{ description }}</a>
+            <a class="btn btn-light btn-block">{{ price }} PLN</a>
+            <div class="input-group-text span2" style="width: 100px !important;">
+            <input type="number" step="1" value="0" name="p{{id}}" style="width: 78px !important;" min="0">
+            </div>
+            </div>
+        {% endfor %}
+    </form>
+{% endblock %}
